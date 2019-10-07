@@ -10,6 +10,7 @@ public class GPSPoint {
 
 		// TODO - konstruktur
 
+		// hei
 		throw new UnsupportedOperationException(TODO.construtor("GPSPoint"));
 
 	}
