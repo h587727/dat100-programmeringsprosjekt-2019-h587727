@@ -14,25 +14,43 @@ public class GPSDataConverter {
 
 	public static int toSeconds(String timestr) {
 		
-		int secs;
-		int hr, min, sec;
+		int secs = 0;
+	
+		
 		
 		// TODO
 		// OPPGAVE - START
+		String[] split = timestr.split("T")[1].split(":");
+
+//		for (String tekst : tekstarray) {
+//			System.out.println(tekst);
+//		}
+		secs += Integer.parseInt(split[0]) * 3600; // sekunder fra timer
+		secs += Integer.parseInt(split[1]) * 60; // sekunder fra minutter
+		secs += Double.parseDouble(split[2].split("Z")[0]); // sekunder fra sekunder
 		
-		throw new UnsupportedOperationException(TODO.method());
+	
 
 		// OPPGAVE - SLUTT
+		return secs;
 		
 	}
 
 	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr, String elevationStr) {
 
-		GPSPoint gpspoint;
+		GPSPoint gpspoint = new GPSPoint(toSeconds(timeStr),
+				Double.parseDouble(latitudeStr),
+				Double.parseDouble(longitudeStr),
+				Double.parseDouble(elevationStr));
 
 		// TODO - START ;
+		// convert("2017-08-13T08:52:26.000Z, "60.385390","5.217217","61.9")
 		
-		throw new UnsupportedOperationException(TODO.method());
+		
+//		System.out.println("seknder (convert):" + toSeconds(timeStr));
+		
+		
+		return gpspoint;
 
 		// OPPGAVE - SLUTT ;
 	    
