@@ -133,35 +133,33 @@ public class GPSUtils {
 	
 	public static String formatTime(int secs) {
 
-	
-		String TIMESEP = ":";
-		
-		int h = secs / 3600;
-		int m = secs % 3600 / 60;
-		int	s = secs % 60;
-		
 		// TODO - START
+	
+		return String.format("  %02d:%02d:%02d",
+		
+		 secs / 3600, 		// timer
+		 secs % 3600 / 60, 	// minutter
+		 secs % 60);			// sekunder
+		
+		
 
-		return "  " + addZeros(h) + TIMESEP + addZeros(m) + TIMESEP + addZeros(s);
+	
 		
 		// TODO - SLUTT
-	}
-
-	private static String addZeros(int num) {
-		return "0".repeat(2 - String.valueOf(num).length()) + num;
+	
 
 	}
 	private static int TEXTWIDTH = 10;
 
 	public static String formatDouble(double d) {
 
-		String str;
+
 
 		// TODO - START
 		
 		d = Math.round (d * 100) / 100.0;
 		
-		return " ".repeat(10 - String.valueOf(d).length()) + d;
+		return " ".repeat(TEXTWIDTH - Double.toString(d).length()) + d;
 
 		// TODO - SLUTT
 		
